@@ -17,7 +17,6 @@
 package org.springframework.samples.petclinic.service;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.samples.petclinic.owner.*;
@@ -25,7 +24,6 @@ import org.springframework.samples.petclinic.vet.Vet;
 import org.springframework.samples.petclinic.vet.VetRepository;
 import org.springframework.samples.petclinic.visit.Visit;
 import org.springframework.samples.petclinic.visit.VisitRepository;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
@@ -63,7 +61,6 @@ import static org.assertj.core.api.Assertions.assertThat;
  * @author Dave Syer
  */
 
-@ExtendWith(SpringExtension.class)
 @DataJpaTest
 public class ClinicServiceTests {
 
