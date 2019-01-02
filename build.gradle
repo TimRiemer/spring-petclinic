@@ -1,0 +1,56 @@
+buildscript {
+    ext {
+        springBootVersion = '2.1.1.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+ext['junit-jupiter.version'] = '5.4.0-M1'
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+repositories {
+    mavenCentral()
+}
+
+group = 'org.springframework.samples'
+version = '2.1.0.BUILD-SNAPSHOT'
+description = 'petclinic'
+sourceCompatibility = '11'
+
+test {
+    useJUnitPlatform()
+}
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter')
+    compile 'org.springframework.boot:spring-boot-starter-actuator'
+    compile 'org.springframework.boot:spring-boot-starter-cache'
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    compile 'org.springframework.boot:spring-boot-devtools'
+
+    compile 'javax.cache:cache-api:1.1.0'
+    compile 'org.ehcache:ehcache:3.6.2'
+    compile 'org.webjars:webjars-locator-core:0.35'
+    compile 'org.webjars:jquery:2.2.4'
+    compile 'org.webjars:jquery-ui:1.11.4'
+    compile 'org.webjars:bootstrap:3.3.6'
+    runtime 'org.hsqldb:hsqldb:2.4.1'
+    runtime 'mysql:mysql-connector-java:8.0.13'
+
+    // will bring in junit-jupiter-api and -params as testCompile and -engine as testRuntime dependencies
+    testCompile "org.junit.jupiter:junit-jupiter"
+    testCompile('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'junit', module: 'junit'
+    }
+}
