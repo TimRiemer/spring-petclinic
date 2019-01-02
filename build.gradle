@@ -56,4 +56,6 @@ dependencies {
     testCompile('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'junit', module: 'junit'
     }
+    testCompile 'com.tngtech.archunit:archunit-junit5-api:0.9.3'
+    testRuntime 'com.tngtech.archunit:archunit-junit5-engine:0.9.3'
 }
