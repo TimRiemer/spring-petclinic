@@ -1,6 +1,7 @@
 buildscript {
     ext {
         springBootVersion = '2.1.1.RELEASE'
+        mockitoVersion = '2.23.4'
     }
     repositories {
         mavenCentral()
@@ -31,7 +32,7 @@ test {
 }
 
 dependencies {
-    compile('org.springframework.boot:spring-boot-starter')
+    compile 'org.springframework.boot:spring-boot-starter'
     compile 'org.springframework.boot:spring-boot-starter-actuator'
     compile 'org.springframework.boot:spring-boot-starter-cache'
     compile 'org.springframework.boot:spring-boot-starter-data-jpa'
@@ -50,6 +51,8 @@ dependencies {
 
     // will bring in junit-jupiter-api and -params as testCompile and -engine as testRuntime dependencies
     testCompile "org.junit.jupiter:junit-jupiter"
+    testCompile "org.mockito:mockito-core:${mockitoVersion}"
+    testCompile "org.mockito:mockito-junit-jupiter:${mockitoVersion}"
     testCompile('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'junit', module: 'junit'
     }
